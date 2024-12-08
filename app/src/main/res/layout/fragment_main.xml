@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/error_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/error"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/error_title" />
+
+    <TextView
+        android:id="@+id/error_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/error_title"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/error_subtitle" />
+
+    <TextView
+        android:id="@+id/error_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        tools:text="Error subtitle"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/bulb_enabling_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        tools:text="@string/state_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bulb_enabling"
+        app:layout_constraintEnd_toStartOf="@id/bulb_enabling"
+        app:layout_constraintBottom_toBottomOf="@id/bulb_enabling" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/bulb_enabling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/bulb_enabling_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/colors" />
+
+    <TextView
+        android:id="@+id/color_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="@string/color"
+        app:layout_constraintStart_toStartOf="@id/bulb_enabling_text"
+        app:layout_constraintTop_toTopOf="@id/colors"
+        app:layout_constraintBottom_toBottomOf="@id/colors" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/colors"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/bulb_enabling"
+        app:layout_constraintEnd_toEndOf="@id/bulb_enabling"
+        app:layout_constraintBottom_toTopOf="@id/brightness">
+
+        <AutoCompleteTextView
+            android:id="@+id/color_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/brightness_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="@string/brightness"
+        app:layout_constraintStart_toStartOf="@id/color_text"
+        app:layout_constraintTop_toTopOf="@id/brightness"
+        app:layout_constraintBottom_toBottomOf="@id/brightness" />
+
+    <SeekBar
+        android:id="@+id/brightness"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:min="0"
+        android:max="100"
+        android:stepSize="1"
+        android:layout_marginTop="16dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/colors"
+        app:layout_constraintEnd_toEndOf="@id/colors"
+        app:layout_constraintBottom_toTopOf="@id/progress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

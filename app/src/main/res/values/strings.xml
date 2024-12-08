@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Smart Bulb</string>
+    <string name="error_title">Произошла ошибка</string>
+    <string name="state_off">Выключена</string>
+    <string name="state_on">Включена</string>
+    <string name="color">Цвет</string>
+    <string name="brightness">Яркость</string>
 </resources>
